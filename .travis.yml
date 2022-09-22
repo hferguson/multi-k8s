@@ -9,8 +9,17 @@ script:
   - docker run -e CI=true hfcdevops/react-test npm test -- --coverage
 
 after_success:
-  docker build -t hfcdevops/multi-client ./client 
-  docker build -t hfcdevops/multi-nginx ./nginx
-  docker build -t hfcdevops/multi-server ./server 
-  docker build -t hfcdevops/multi-worker ./worker 
+  - docker build -t hfcdevops/multi-client ./client 
+  - docker build -t hfcdevops/multi-nginx ./nginx
+  - docker build -t hfcdevops/multi-server ./server 
+  - docker build -t hfcdevops/multi-worker ./worker 
+  # Log into docker CLI
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  # Push images to docker hub
+  - docker push hfcdevops/multi-client
+  - docker push hfcdevops/multi-nginx 
+  - docker push hfcdevops/multi-server 
+  - docker push hfcdevops/multi-worker 
+  
+
 
