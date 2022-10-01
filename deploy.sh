@@ -1,5 +1,5 @@
 docker build -t hfcdevops/multi-client:latest -t hfcdevops/multi-client:$SHA -f ./client/Dockerfile ./client 
-docker build -t hfcdevops/multi-server:latest t hfcdevops/multi-server:$SHA -f ./server/Dockerfile ./server 
+docker build -t hfcdevops/multi-server:latest -t hfcdevops/multi-server:$SHA -f ./server/Dockerfile ./server 
 docker build -t hfcdevops/multi-worker:latest -t hfcdevops/multi-worker:$SHA -f ./worker/Dockerfile ./worker 
 
 docker push hfcdevops/multi-client:latest 
