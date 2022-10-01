@@ -13,4 +13,4 @@ docker push hfcdevops/multi-worker:$SHA
 kubectl apply -f k8s 
 kubectl set image deployments/server-deployment server=hfcdevops/multi-server:$SHA
 kubectl set image deployments/client-deployment client=hfcdevops/multi-client:$SHA
-kubectl set image deployments/worker-deployment client=hfcdevops/multi-worker:$SHA 
+kubectl set image deployments/worker-deployment worker=hfcdevops/multi-worker:$SHA 
